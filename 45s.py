@@ -11,7 +11,7 @@ config=[]
 with open('config.ini','r',encoding='utf-8') as file:
     config=file.read().split('\n')
 for i in config:
-    name,valuse=i.split(':')y
+    name,valuse=i.split(':')
     match name:
         case 'time':
             time=int(valuse)
