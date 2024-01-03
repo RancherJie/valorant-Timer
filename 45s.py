@@ -17,8 +17,8 @@ for i in config:
             time=int(valuse)
         case 'start':
             start=tuple(valuse.split(' '))
-        case 'resrt':
-            resrt=tuple(valuse.split(' '))
+        case 'reset':
+            reset=tuple(valuse.split(' '))
         case 'move':
             move=tuple(valuse.split(' '))
         case 'x':
@@ -48,7 +48,7 @@ class TimmerDemo(QWidget):
         self.sigkeyhot.connect(self.KeypressEvent)
         self.hk_start,self.hk_resrt,self.hk_move = SystemHotkey(),SystemHotkey(),SystemHotkey()
         self.hk_start.register(start,callback=lambda x:self.sendkeyevent("hk_start"))
-        self.hk_resrt.register(resrt, callback=lambda x: self.sendkeyevent("hk_resrt"))
+        self.hk_resrt.register(reset, callback=lambda x: self.sendkeyevent("hk_resrt"))
         self.hk_move.register(move, callback=lambda x: self.sendkeyevent("hk_move"))
 
 
