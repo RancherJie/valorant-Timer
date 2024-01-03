@@ -11,7 +11,7 @@ config=[]
 with open('config.ini','r',encoding='utf-8') as file:
     config=file.read().split('\n')
 for i in config:
-    name,valuse=i.split(':')
+    name,valuse=i.split(':')y
     match name:
         case 'time':
             time=int(valuse)
@@ -46,9 +46,9 @@ class TimmerDemo(QWidget):
         self.move(x,y)
         #快捷键
         self.sigkeyhot.connect(self.KeypressEvent)
-        self.hk_start,self.hk_resrt,self.hk_move = SystemHotkey(),SystemHotkey(),SystemHotkey()
+        self.hk_start,self.hk_reset,self.hk_move = SystemHotkey(),SystemHotkey(),SystemHotkey()
         self.hk_start.register(start,callback=lambda x:self.sendkeyevent("hk_start"))
-        self.hk_resrt.register(reset, callback=lambda x: self.sendkeyevent("hk_resrt"))
+        self.hk_reset.register(reset, callback=lambda x: self.sendkeyevent("hk_reset"))
         self.hk_move.register(move, callback=lambda x: self.sendkeyevent("hk_move"))
 
 
@@ -62,7 +62,7 @@ class TimmerDemo(QWidget):
         match i_str:
             case "hk_start":
                 self.starttimer()
-            case "hk_resrt":
+            case "hk_reset":
                 self.endtimer()
             case 'hk_move':
                 x = QCursor.pos().x()
